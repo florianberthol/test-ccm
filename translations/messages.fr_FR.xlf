@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="fr-FR" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="b9RKB66" resname="department.description %deparmentLabel%">
+        <source>department.description %deparmentLabel%</source>
+        <target>description pour le département : %deparmentLabel%</target>
+      </trans-unit>
+      <trans-unit id="xObbqj7" resname="department.heading %deparmentLabel%">
+        <source>department.heading %deparmentLabel%</source>
+        <target>Département : %deparmentLabel%</target>
+      </trans-unit>
+      <trans-unit id="2WM4.LN" resname="departments.description">
+        <source>departments.description</source>
+        <target>liste des départements</target>
+      </trans-unit>
+      <trans-unit id="vN2JhnA" resname="departments.heading">
+        <source>departments.heading</source>
+        <target>liste des départements</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

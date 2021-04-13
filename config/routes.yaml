@@ -1,3 +1,15 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+index:
+    path: /
+    controller: App\Controller\HomeController::indexAction
+
+
+department:
+  path: /departement/{code}/{name}
+  controller: App\Controller\DepartmentController::indexAction
+  requirements:
+    code: "[0-9A-B]+"
+    name: "[a-z0-9-]+"
+
+departments:
+  path: /departements/
+  controller: App\Controller\DepartmentsController::indexAction

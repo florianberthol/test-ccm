@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block breadcrumb %}
+    {% set breadcrumb = {'index':'Home', 'departments': 'Départements'} %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+<h1>{{'department.heading %deparmentLabel%'|trans({'%deparmentLabel%': department.getName()|capitalize})}}</h1>
+
+id : {{department.getId()}}
+<br>
+name : {{department.getName()}}
+<br>
+code : {{department.getCode()}}
+<br>
+url : {{ url }}
+<br>
+
+{% endblock %}

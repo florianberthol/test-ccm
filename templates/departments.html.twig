@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+{% block breadcrumb %}
+    {% set breadcrumb = {'index':'Home'} %}
+    {{ parent() }}
+{% endblock %}
+{% block body %}
+    <h1>{{'departments.heading'|trans()|capitalize}}</h1>
+
+    url : {{ url('departments', {}, false) }}
+    <br><br>
+    <table class="table">
+        <tr>
+            <th>Id</th>
+            <th>Nom</th>
+            <th>Code</th>
+            <th>Url</th>
+        </tr>
+        {% for department in departments %}
+            <tr>
+                <td>{{department.getId()}}</td>
+                <td>{{department.getName()}}</td>
+                <td>{{department.getCode()}}</td>
+                <td><a href="{{ departmentsUrl[department.getId()] }}">{{ departmentsUrl[department.getId()] }}</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
