@@ -1,12 +1,21 @@
 Application test - Recrutement CCM Benchmark Group
 --------------------------------------------------
 
-Intro bla bla
-
 ## Prérequis
 
 Pour faire fonctionner cette application, vous devez disposer d'une version de PHP >= 7.4 et du
-[binaire symfony](https://symfony.com/download). Si vous préférez utiliser docker, un Dockerfile est fourni.
+[binaire symfony](https://symfony.com/download). Si vous préférez utiliser docker, un Dockerfile est fourni. Il vous faut
+disposer de git sur votre machine.
+
+## Extraire le repo
+A partir du bundle test_recrutement.git, il vous faut récupérer un `working tree` fonctionnel. Pour cela il faut exécuter
+les commandes suivantes:
+
+1. `git clone test_recrutement.git test_recrutement`
+2. `cd test_recrutement`
+3. `git switch -c master`
+
+A cette étape vous disposez d'une copie fonctionnelle, devant vous permettre de démarrer le projet.
 
 ## Démarrage
 

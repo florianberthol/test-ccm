@@ -3,6 +3,7 @@
 {% block body %}
     <h1>Application de test</h1>
     <p>Bienvenue sur ce test de recrutement.</p>
+    <p>Ce test est conçu pour durer maximum 1h. Cependant à vous de décider le moment auquel vous vous arrêtez.</p>
 
     <h2>1. Tri de données</h2>
     <p>L'objectif de ce premier exercice est de modifier l'affichage effectué sur la <a href="{{ url('departments') }}">page départements</a>.
@@ -36,6 +37,7 @@
     <h2>C'est fini !</h2>
     <p>
         Bravo, vous êtes arrivé au bout des différents exercices. Il vous faut désormais nous transmettre votre code,
-        en récupérant la sortie de la commande <code>git diff > </code>
+        en créant un patch git à partir de la commande suivante: <code>git diff master > recrutement.patch</code>.
+        Transmettez nous ensuite ce fichier par mail afin que nous puissions étudier les résultats.
     </p>
 {% endblock %}

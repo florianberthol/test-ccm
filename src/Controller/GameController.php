@@ -9,12 +9,6 @@ final class GameController extends AbstractController
 {
     public function __invoke():Response
     {
-        return $this->render('game.html.twig', [
-            'lots' => [
-                'TV',
-                'Bon d\'achat',
-                ''
-            ]
-        ]);
+        return $this->render('game.html.twig');
     }
 }
