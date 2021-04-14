@@ -2,8 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\Department;
-use App\Repository\CityRepository;
 use App\Repository\DepartmentRepository;
 use App\Repository\Exception\DepartmentNotFound;
 use Symfony\Component\HttpFoundation\Request;
@@ -17,13 +15,13 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 
 final class DepartmentController extends AbstractController
 {
-    public function indexAction(
+    public function __invoke(
         Request $request,
         DepartmentRepository $departmentRepository,
         SluggerInterface $slugger,
         RouterInterface $router,
         TranslatorInterface $translator
-    ) {
+    ) : Response {
         try {
             $department = $departmentRepository->findOneByCode($request->get('code'));
         } catch (DepartmentNotFound $e) {

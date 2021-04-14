@@ -1,15 +1,18 @@
 index:
     path: /
-    controller: App\Controller\HomeController::indexAction
-
+    controller: App\Controller\HomeController
 
 department:
   path: /departement/{code}/{name}
-  controller: App\Controller\DepartmentController::indexAction
+  controller: App\Controller\DepartmentController
   requirements:
     code: "[0-9A-B]+"
     name: "[a-z0-9-]+"
 
 departments:
   path: /departements/
-  controller: App\Controller\DepartmentsController::indexAction
+  controller: App\Controller\DepartmentsController
+
+game:
+  path: /jeu/
+  controller: App\Controller\GameController

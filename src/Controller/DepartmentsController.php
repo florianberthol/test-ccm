@@ -13,13 +13,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 final class DepartmentsController extends AbstractController
 {
-    public function indexAction(
+    public function __invoke(
         Request $request,
         DepartmentRepository $departmentRepository,
         RouterInterface $router,
         TranslatorInterface $translator,
         SluggerInterface $slugger
-    ) {
+    ) : Response {
         $queryString = '';
         if (!empty($request->getQueryString())) {
             $queryString = '?' . $request->getQueryString();

@@ -10,9 +10,17 @@ Pour faire fonctionner cette application, vous devez disposer d'une version de P
 
 ## Démarrage
 
-Vous pouvez démarrer le serveur avec le binaire symfony grâce à la commande `symfony server:start` depuis le répertoire courant.
-Vous pouvez également utiliser la commande docker: `docker run --rm -it -v $PWD:/app --user $(id -u):$(id -g) composer install && \
-docker build -t ccm_test . && docker run --rm -it -v $PWD:/app -p8000:8000 ccm_test`.
+Vous pouvez choisir de faire tourner l'application sur votre machine ou via docker, en fonction de votre préférence.
+
+### Sans docker
+
+1. Installer les dépendances: `composer install`
+2. Démarrer le serveur symfony: `symfony server:start`
+
+### A l'aide de docker
+
+1. Installer les dépendances: `docker run --rm -it -v $PWD:/app --user $(id -u):$(id -g) composer install`
+2. Builder et démarrer le conteneur: `docker build -t ccm_test . && docker run --rm -it -v $PWD:/app -p8000:8000 ccm_test`
 
 ## C'est parti
 

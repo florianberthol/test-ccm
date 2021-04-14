@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block breadcrumb %}
+    {% set breadcrumb = {'index':'Home'} %}
+    {{ parent() }}
+{% endblock %}
+{% block body %}
+    <h1>Jeu concours</h1>
+    <div id="game">
+        <div class="spinner-border text-{{ random(['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'])}}" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+    <script>
+        fetch('/game/api')
+        .then( async (response) => {
+            response.json().then(result => {
+                const ul = document.createElement('ul');
+                ul.classList.add('list-group');
+
+                const li = document.createElement('li');
+                li.classList.add('list-group-item');
+
+                for (const winner in result.winners) {
+                    const myLi = li.cloneNode();
+                    myLi.textContent = winner;
+                    ul.appendChild(myLi);
+                }
+                const myNode = document.querySelector('#game');
+                while (myNode.firstChild) {
+                    myNode.removeChild(myNode.lastChild);
+                }
+                myNode.appendChild(ul);
+            })
+        });
+    </script>
+{% endblock %}

@@ -14,18 +14,28 @@
     <h2>2. Ajout des informations de ville</h2>
     <p>
         L'objectif de cet exercice est d'intervenir sur les pages de chaque départements, par exemple celle de
-        <a href="/departement/35/ille-et-vilaine">l'Ille-et-Vilaine</a>. Vous devez ajouter sur cette page la liste des
+        <a href="{{ url('department', {code: 35, name: 'ille-et-vilaine'}) }}">l'Ille-et-Vilaine</a>. Vous devez ajouter sur cette page la liste des
         villes du département. L'affichage est libre, cependant vous devez trier les villes par nom.
     </p>
 
     <h2>3. Gestion de cache public</h2>
     <p>
-
+        La page qui liste <a href="{{ url('departments') }}">les départements</a> possède une gestion de cache publique. Il faut dans cet exercice implémenter
+        une gestion similaire sur les pages de chaque départements, prenant en compte les types de données affichées
+        pour déterminer la clé de cache à utiliser.
     </p>
 
     <h2>4. Optimisation d'un algorithme de tirage aléatoire</h2>
     <p>
+        Un jeu concours a été organisé sur le site. La <a href="{{ path('game') }}">page de résultats est accessible</a>,
+        malheureusement elle est beaucoup trop lente. Votre mission est d'identifier le script qui effectue le tirage
+        au sort et de l'optimiser. Vous pouvez refactorer le code comme vous l'entendez, mais l'objectif reste ici la
+        performance.
     </p>
 
-    <h2>5. </h2>
+    <h2>C'est fini !</h2>
+    <p>
+        Bravo, vous êtes arrivé au bout des différents exercices. Il vous faut désormais nous transmettre votre code,
+        en récupérant la sortie de la commande <code>git diff > </code>
+    </p>
 {% endblock %}
