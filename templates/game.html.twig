@@ -23,7 +23,7 @@
 
                 for (const winner in result.winners) {
                     const myLi = li.cloneNode();
-                    myLi.textContent = winner;
+                    myLi.textContent = result.winners[winner];
                     ul.appendChild(myLi);
                 }
                 const myNode = document.querySelector('#game');
