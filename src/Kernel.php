@@ -39,11 +39,14 @@ class Kernel extends BaseKernel
         $routes->add('game_api', '/game/api')->controller([$this, 'apiGame']);
     }
 
+    /**
+     * Get 20 unique random winners, between 1 and 1000, not in an array of losers
+     */
     public function apiGame(): JsonResponse
     {
-        $n = range(0, 1000);
-        shuffle($n);
-        $losers = array_slice($n,0, 200);
+        $losers = [
+            2, 56, 345, 674, 234, 764, 543, 123, 324, 9, 78, 12, 94, 12, 50, 5, 13
+        ];
 
         $winners = [];
 
@@ -62,6 +65,15 @@ class Kernel extends BaseKernel
             }
             $winners[] = $i;
         } while (count($winners) < 200 && $i < 1000);
+
+        // Shuffle the array
+        usort(
+            $winners,
+            function($a, $b) {
+                return (mt_rand(0, 1) === 0 ? -1 : 1);
+            }
+        );
+        $winners = array_slice($winners, 0, 20);
 
         return new JsonResponse(['winners' => $winners]);
     }

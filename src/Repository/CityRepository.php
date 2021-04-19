@@ -6,12 +6,10 @@ use App\Entity\City;
 
 final class CityRepository
 {
-    /** @var ?array $data */
-    private $dataByDepartmentId;
+    private array $dataByDepartmentId = [];
 
     public function __construct(string $filePath)
     {
-        $this->dataByDepartmentId = [];
         $handle = fopen($filePath, 'r');
         fgetcsv($handle); // Remove header
         while (($row = fgetcsv($handle)) !== false) {
@@ -20,12 +18,13 @@ final class CityRepository
             }
             $this->dataByDepartmentId[$row[1]][] = [
                 'id' => $row[0],
-                'name' => $row[3]
+                'name' => $row[3],
+                'slug' => $row[2]
             ];
         }
     }
 
-    public function findByDepartmentId(int $departmentId): array
+    public function fetchByDepartmentId(int $departmentId): array
     {
         $cities = [];
         if (array_key_exists($departmentId, $this->dataByDepartmentId) === true) {
@@ -39,5 +38,21 @@ final class CityRepository
         }
 
         return $cities;
+    }
+
+    public function getAll(): \Traversable
+    {
+        foreach($this->dataByDepartmentId as $departmentId => $cities) {
+            foreach ($cities as $cityData) {
+                $city = new City();
+                $city
+                    ->setId($cityData['id'])
+                    ->setDepartmentId($departmentId)
+                    ->setName($cityData['name'])
+                    ->setSlug($cityData['slug'])
+                ;
+                yield $city;
+            }
+        }
     }
 }

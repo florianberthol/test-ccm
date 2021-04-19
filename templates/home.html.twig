@@ -3,41 +3,80 @@
 {% block body %}
     <h1>Application de test</h1>
     <p>Bienvenue sur ce test de recrutement.</p>
-    <p>Ce test est conçu pour durer maximum 1h. Cependant à vous de décider le moment auquel vous vous arrêtez.</p>
+    <p>Ce test est conçu pour durer environ 1h. Cependant à vous de décider le moment auquel vous vous arrêtez.</p>
 
     <h2>1. Tri de données</h2>
-    <p>L'objectif de ce premier exercice est de modifier l'affichage effectué sur la <a href="{{ url('departments') }}">page départements</a>.
-    <p>
-        Sur cette page les départements sont listés dans l'ordre fourni par la source de données. Vous devez trier les
-        départements selon leur nom.
-    </p>
+    <section class="container-fluid">
+        <p>L'objectif de ce premier exercice est de modifier l'affichage effectué sur la <a href="{{ url('departments') }}">page départements</a>.</p>
+        <p>
+            Sur cette page les départements sont listés dans l'ordre fourni par la source de données. Vous devez trier les
+            départements selon leur nom.
+        </p>
+    </section>
 
     <h2>2. Ajout des informations de ville</h2>
-    <p>
-        L'objectif de cet exercice est d'intervenir sur les pages de chaque départements, par exemple celle de
-        <a href="{{ url('department', {code: 35, name: 'ille-et-vilaine'}) }}">l'Ille-et-Vilaine</a>. Vous devez ajouter sur cette page la liste des
-        villes du département. L'affichage est libre, cependant vous devez trier les villes par nom.
-    </p>
+    <section class="container-fluid">
+        <p>
+            L'objectif de cet exercice est d'intervenir sur les pages de chaque départements, par exemple celle de
+            <a href="{{ url('department', {code: 35, name: 'ille-et-vilaine'}) }}">l'Ille-et-Vilaine</a>. Vous devez ajouter sur cette page la liste des
+            villes du département. L'affichage est libre, cependant vous devez trier les villes par nom. Le Repository à utiliser
+            est <code>App\Repository\CityRepository</code>.
+        </p>
+    </section>
 
     <h2>3. Gestion de cache public</h2>
-    <p>
-        La page qui liste <a href="{{ url('departments') }}">les départements</a> possède une gestion de cache public. Il faut dans cet exercice implémenter
-        une gestion similaire sur les pages de chaque départements, prenant en compte les types de données affichées
-        pour déterminer la clé de cache à utiliser.
-    </p>
+    <section class="container-fluid">
+        <p>
+            La page qui liste <a href="{{ url('departments') }}">les départements</a> possède une gestion de cache public. Il faut dans cet exercice implémenter
+            une gestion similaire sur les pages de chaque départements, prenant en compte les types de données affichées
+            pour déterminer la clé de cache à utiliser.
+        </p>
+    </section>
 
     <h2>4. Optimisation d'un algorithme de tirage aléatoire</h2>
-    <p>
-        Un jeu concours a été organisé sur le site. La <a href="{{ path('game') }}">page de résultats est accessible</a>,
-        malheureusement elle est beaucoup trop lente. Votre mission est d'identifier le script qui effectue le tirage
-        au sort et de l'optimiser. Vous pouvez refactorer le code comme vous l'entendez, mais l'objectif reste ici la
-        performance.
-    </p>
+    <section class="container-fluid">
+        <p>
+            Un jeu concours a été organisé sur le site. La <a href="{{ path('game') }}">page de résultats est accessible</a>,
+            malheureusement elle est beaucoup trop lente. Votre mission est d'identifier le script qui effectue le tirage
+            au sort et de l'optimiser. Vous pouvez refactorer le code comme vous l'entendez, mais l'objectif reste ici la
+            performance.
+        </p>
+    </section>
+
+    <h2>5. Exercice au choix</h2>
+    <section class="container-fluid">
+        <p>Pour la suite, 2 exercices différents sont proposés. Vous pouvez choisir celui que vous préférez (ou effectuer les 2).</p>
+        <h3>A. Migration progressive de base de données</h3>
+        <p>
+            Le fichier CSV contenu dans <code>db/cities.csv</code> montre ses limites, il est temps de passer à SQLite !
+            Une autre équipe vous a mis à disposition un repository, disponible dans <code>App\Repository\CitySQLiteRepository</code>.
+            Attention. <strong>Vous ne pouvez pas modifier le code des repositories existants</strong> (<code>CityRepository</code> et <code>CitySQLiteRepository</code>).
+            Vous devez cependant modifier le controlleur <code>DepartmentController</code>, afin qu'il puisse accepter indifféremment
+            une instance de <code>CityRepository</code> ou de <code>CitySQLiteRepository</code>. Il doit rester agnostique
+            des détails d'implémentation, qui ne sont pas de sa responsabilité. Vous pouvez ajouter toutes les classes dont vous
+            avez besoin pour gérer cette migration.
+        </p>
+        <p><strong>Point bonus:</strong> L'import de données prend actuellement plusieurs minutes, voyez-vous comment vous pouvez la réduire à quelques secondes, en 2 lignes de code ?</p>
+
+        <h3>B. Tests unitaires</h3>
+        <p>
+            Une classe de test a été créée pour le <code>CityRepository</code>. Cependant celle-ci est bien vide. Votre mission
+            est d'ajouter des tests et, si nécessaire, de retravailler le <code>CityRepository</code> pour améliorer la
+            qualité des tests unitaires.
+        </p>
+        <p>Selon votre environnement, les tests peuvent être lancés de la manière suivante:</p>
+        <ul>
+            <li>Docker: <code>docker exec -it test_recrutement vendor/bin/phpunit</code></li>
+            <li>PHP natif: <code>vendor/bin/phpunit</code></li>
+        </ul>
+    </section>
 
     <h2>C'est fini !</h2>
-    <p>
-        Bravo, vous êtes arrivé au bout des différents exercices. Il vous faut désormais nous transmettre votre code,
-        en créant un patch git à partir de la commande suivante: <code>git diff master > recrutement.patch</code>.
-        Transmettez nous ensuite ce fichier par mail afin que nous puissions étudier les résultats.
-    </p>
+    <section class="container-fluid">
+        <p>
+            Bravo, vous êtes arrivé au bout des différents exercices. Il vous faut désormais nous transmettre votre code,
+            en créant un patch git à partir de la commande suivante: <code>git diff master > recrutement.patch</code>.
+            Transmettez nous ensuite ce fichier par mail afin que nous puissions étudier les résultats.
+        </p>
+    </section>
 {% endblock %}

@@ -24,12 +24,14 @@ Vous pouvez choisir de faire tourner l'application sur votre machine ou via dock
 ### Sans docker
 
 1. Installer les dépendances: `composer install`
-2. Démarrer le serveur symfony: `symfony server:start`
+2. Alimenter la base SQLIte à partir des données contenues dans un fichier CSV: `php bin/console app:update-db`
+3. Démarrer le serveur symfony: `symfony server:start`
 
 ### A l'aide de docker
 
 1. Installer les dépendances: `docker run --rm -it -v $PWD:/app --user $(id -u):$(id -g) composer install`
-2. Builder et démarrer le conteneur: `docker build -t ccm_test . && docker run --rm -it -v $PWD:/app -p8000:8000 ccm_test`
+2. Builder et démarrer le conteneur: `docker build -t ccm_test . && docker run --rm -it --name="test_recrutement" -v $PWD:/app -p8000:8000 ccm_test`
+3. Alimenter la base SQLIte à partir des données contenues dans un fichier CSV: `docker exec -it test_recrutement bin/console app:update-db`
 
 ## C'est parti
 

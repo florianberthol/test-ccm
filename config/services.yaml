@@ -37,3 +37,7 @@ services:
     App\Repository\CityRepository:
         arguments:
             $filePath: '%kernel.project_dir%/db/cities.csv'
+
+    App\Repository\CitySQLiteRepository:
+        arguments:
+            $databaseFile: '%kernel.project_dir%/db/cities.sqlite'
