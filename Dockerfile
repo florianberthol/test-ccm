@@ -3,8 +3,8 @@ WORKDIR /app
 
 RUN apt-get update && apt-get install -y wget libicu-dev
 RUN docker-php-ext-install intl
-RUN wget https://get.symfony.com/cli/installer -O - | bash
-RUN mv /root/.symfony/bin/symfony /usr/local/bin/symfony
+RUN wget https://get.symfony.com/cli/installer -q && chmod +x installer
+RUN ./installer --install-dir=/usr/local/bin && rm ./installer
 
 VOLUME /app
 
