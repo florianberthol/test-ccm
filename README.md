@@ -3,7 +3,7 @@ Application test - Recrutement CCM Benchmark Group
 
 ## Prérequis
 
-Pour faire fonctionner cette application, vous devez disposer d'une version de PHP >= 7.4 et du
+Pour faire fonctionner cette application, vous devez disposer d'une version de PHP >= 8.2 et du
 [binaire symfony](https://symfony.com/download). Si vous préférez utiliser docker, un Dockerfile est fourni. Il vous faut
 disposer de git sur votre machine.
 

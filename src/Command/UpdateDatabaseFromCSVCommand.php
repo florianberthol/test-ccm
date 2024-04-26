@@ -4,19 +4,22 @@ namespace App\Command;
 
 use App\Repository\CityRepository;
 use App\Repository\CitySQLiteRepository;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'app:update-db',
+    description: 'Load the cities into sqlite from the csv.'
+)]
 class UpdateDatabaseFromCSVCommand extends Command
 {
-    protected static $defaultName = 'app:update-db';
-
     protected CityRepository $sourceRepository;
     protected CitySQLiteRepository $destRepository;
 
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->addOption('truncate', null, InputOption::VALUE_NONE)
@@ -45,7 +48,7 @@ class UpdateDatabaseFromCSVCommand extends Command
         return $this;
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $this->destRepository->createTable();
         if ($input->getOption('truncate')) {
