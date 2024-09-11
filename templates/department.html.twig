@@ -16,5 +16,18 @@ name : {{department.getName()}}
 code : {{department.getCode()}}
 <br>
 url : {{ url }}
-<br>
+<hr>
+<br><br>
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Nom</th>
+    </tr>
+    {% for city in cities %}
+        <tr>
+            <td>{{city.getId()}}</td>
+            <td>{{city.getName()}}</td>
+        </tr>
+    {% endfor %}
+</table>
 {% endblock %}

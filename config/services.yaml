@@ -41,3 +41,5 @@ services:
     App\Repository\CitySQLiteRepository:
         arguments:
             $databaseFile: '%kernel.project_dir%/db/cities.sqlite'
+
+    App\Service\CityInterface: '@App\Service\CitySQLite'

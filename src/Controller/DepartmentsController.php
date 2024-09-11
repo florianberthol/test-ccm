@@ -44,6 +44,12 @@ final class DepartmentsController extends AbstractController
         }
 
         $departments = $departmentRepository->findAll();
+        usort($departments, function ($a, $b) {
+            if ($a->getName() == $b->getName()) {
+                return 0;
+            }
+            return ($a->getName() < $b->getName()) ? -1 : 1;
+        });
         $departmentsUrl = [];
         foreach ($departments as $department) {
             $departmentsUrl[$department->getId()] = $router->generate(

@@ -16,8 +16,10 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 class UpdateDatabaseFromCSVCommand extends Command
 {
-    protected CityRepository $sourceRepository;
-    protected CitySQLiteRepository $destRepository;
+    public function __construct(protected CityRepository $sourceRepository, protected CitySQLiteRepository $destRepository)
+    {
+        parent::__construct();
+    }
 
     protected function configure(): void
     {

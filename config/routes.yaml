@@ -16,3 +16,7 @@ departments:
 game:
   path: /jeu/
   controller: App\Controller\GameController
+
+api_game:
+  path: /game/api
+  controller: App\Controller\ApiGameController
